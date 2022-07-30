@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const axios = require('axios')
 const cheerio = require('cheerio')
-const imageDomain = 'https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link/images'
+const imageDomain = 'https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link'
 /*
 Format:
     name: String
@@ -68,7 +68,7 @@ const getProducts = async () => {
     products[pdpLinks[i]['name']]['description'] = $('.product-overview ul').parent().html()
     products[pdpLinks[i]['name']]['images'] = []
     $('[data-toggle="lightbox"]').each((_, el) => {
-      let imagePath = `/products/${pdpLinks[i]['name']}/${_}.png`
+      let imagePath = `/images/products/${pdpLinks[i]['name']}/${_}.png`
       axios
         .get($(el).attr('href'), {
           responseType: 'arraybuffer',

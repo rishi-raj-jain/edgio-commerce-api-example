@@ -15,7 +15,7 @@ export default new Router()
     setResponseHeader('Access-Control-Allow-Origin', '*')
     setResponseHeader('Access-Control-Allow-Methods', 'GET')
     setResponseHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-    serveStatic(':path*')
+    serveStatic('images/:path*')
   })
   .get('/products/all', ({ compute, cache }) => {
     cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })
