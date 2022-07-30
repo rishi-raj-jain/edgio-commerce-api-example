@@ -1,12 +1,12 @@
 import { products } from './data'
 import { Router } from '@layer0/core'
 
-const CORS= (res) => {
-    if (res){
-        res.setHeader('Access-Control-Allow-Origin', '*')
-        res.setHeader('Access-Control-Allow-Methods', 'GET')
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-    }
+const CORS = (res) => {
+  if (res) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET')
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  }
 }
 
 export default new Router()
@@ -15,7 +15,7 @@ export default new Router()
     setResponseHeader('Access-Control-Allow-Origin', '*')
     setResponseHeader('Access-Control-Allow-Methods', 'GET')
     setResponseHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-    serveStatic('images/:path*')
+    serveStatic(':path*')
   })
   .get('/products/all', ({ compute, cache }) => {
     cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })

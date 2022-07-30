@@ -1,3 +1,5 @@
-node_modules
-.next
-.layer0
+/node_modules
+/.layer0
+/images
+/products
+data.js

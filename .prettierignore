@@ -1,1 +1,5 @@
-images
+images/
+products/
+/.layer0
+/products
+data.js
