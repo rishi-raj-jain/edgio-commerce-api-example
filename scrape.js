@@ -65,7 +65,6 @@ const getProducts = async () => {
       },
     })
     $ = cheerio.load(data)
-    products[pdpLinks[i]['name']]['description'] = $('.product-overview ul').parent().html()
     products[pdpLinks[i]['name']]['images'] = []
     $('[data-toggle="lightbox"]').each((_, el) => {
       let imagePath = `/images/products/${pdpLinks[i]['name']}/${_}.png`
@@ -83,6 +82,13 @@ const getProducts = async () => {
         })
       products[pdpLinks[i]['name']]['images'].push({ url: `${imageDomain}${imagePath}` })
     })
+    products[pdpLinks[i]['name']]['description'] = $('.product-overview ul')
+      .parent()
+      .find('*')
+      .each(function () {
+        this.attribs = {}
+      })
+      .html()
   }
   try {
     fs.outputFile('./data.js', `export const products= ${JSON.stringify(Object.keys(products).map((i) => products[i]))}`)
