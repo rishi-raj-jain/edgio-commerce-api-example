@@ -38,6 +38,7 @@ const getProducts = async () => {
       path,
       slug,
       name: itemName,
+      categories: itemName.split(' ').filter((i) => i),
       prices: {
         price: { value: itemPrice.match(/^([a-z]*)([^\d])([\d.,]+)$/i)[3], currencyCode: itemPrice.match(/^([a-z]*)([^\d])([\d.,]+)$/i)[2] },
         salePrice: null,
@@ -90,8 +91,31 @@ const getProducts = async () => {
       })
       .html()
   }
+
+  let categories = {}
+  let finalProducts = Object.keys(products).map((i) => products[i])
+  finalProducts.forEach((i) => {
+    i.categories.forEach((j) => {
+      if (categories.hasOwnProperty(j)) {
+        categories[j].push(i)
+      } else {
+        categories[j] = [i]
+      }
+    })
+  })
+  let catKeys = Object.keys(categories)
+  catKeys.forEach((i) => {
+    if (categories.hasOwnProperty(i)) {
+      if (categories[i].length > 1) {
+      } else {
+        delete categories[i]
+      }
+    }
+  })
+
   try {
-    fs.outputFile('./data.js', `export const products= ${JSON.stringify(Object.keys(products).map((i) => products[i]))}`)
+    fs.outputFile('./data.js', `export const products= ${JSON.stringify(finalProducts)}`)
+    fs.outputFile('./categories.js', `export const categories= ${JSON.stringify(categories)}`)
     console.log('✅')
   } catch (e) {
     console.log(e)

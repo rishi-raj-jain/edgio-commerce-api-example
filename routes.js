@@ -1,13 +1,6 @@
 import { products } from './data'
 import { Router } from '@layer0/core'
-
-const CORS = (res) => {
-  if (res) {
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    res.setHeader('Access-Control-Allow-Methods', 'GET')
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  }
-}
+import { categories } from './categories'
 
 export default new Router()
   .get('/images/:path*', ({ cache, serveStatic, setResponseHeader }) => {
@@ -21,8 +14,34 @@ export default new Router()
     cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })
     compute((req, res) => {
       res.setHeader('content-type', 'application/json')
-      CORS(res)
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Methods', 'GET')
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
       res.body = JSON.stringify(products)
+      res.statusCode = 200
+      res.statusMessage = 'OK'
+    })
+  })
+  .get('/categories/all', ({ cache, compute }) => {
+    cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })
+    compute((req, res) => {
+      res.setHeader('content-type', 'application/json')
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Methods', 'GET')
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+      res.body = JSON.stringify(Object.keys(categories))
+      res.statusCode = 200
+      res.statusMessage = 'OK'
+    })
+  })
+  .get('/categories/:slug', ({ cache, compute }) => {
+    cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })
+    compute((req, res) => {
+      res.setHeader('content-type', 'application/json')
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Methods', 'GET')
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+      res.body = JSON.stringify(categories[req.params.slug])
       res.statusCode = 200
       res.statusMessage = 'OK'
     })
@@ -30,10 +49,11 @@ export default new Router()
   .get('/products/:slug', ({ compute, cache }) => {
     cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })
     compute((req, res) => {
-      const { slug } = req.params
       res.setHeader('content-type', 'application/json')
-      CORS(res)
-      res.body = JSON.stringify(products.find((i) => i.slug === slug))
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Methods', 'GET')
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+      res.body = JSON.stringify(products.find((i) => i.slug === req.params.slug))
       res.statusCode = 200
       res.statusMessage = 'OK'
     })
@@ -41,11 +61,11 @@ export default new Router()
   .get('/product-images/:slug', ({ compute, cache }) => {
     cache({ edge: { maxAgeSeconds: 60 * 60 * 24 * 365 }, browser: false })
     compute((req, res) => {
-      const { slug } = req.params
       res.setHeader('content-type', 'application/json')
-      CORS(res)
-      const item = products.find((i) => i.slug === slug)
-      res.body = JSON.stringify(item.images)
+      res.setHeader('Access-Control-Allow-Origin', '*')
+      res.setHeader('Access-Control-Allow-Methods', 'GET')
+      res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+      res.body = JSON.stringify(products.find((i) => i.slug === req.params.slug).images)
       res.statusCode = 200
       res.statusMessage = 'OK'
     })
