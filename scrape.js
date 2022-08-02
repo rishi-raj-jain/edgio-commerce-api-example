@@ -3,14 +3,14 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const imageDomain = 'https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link'
 /*
-Format:
-    name: String
-    path: lower case string with slashes
-    description: Description in ul classes
-    prices: { price: { value: 80, currencyCode: 'USD' }, salePrice: null, retailPrice: null },
-    images: [ { url }, { url }, ... ]
-    slug: path with removed slashes
-    price: { value: 80, currencyCode: 'USD' },
+    Format:
+        name: String
+        path: lower case string with slashes
+        description: Description in ul classes
+        prices: { price: { value: 80, currencyCode: 'USD' }, salePrice: null, retailPrice: null },
+        images: [ { url }, { url }, ... ]
+        slug: path with removed slashes
+        price: { value: 80, currencyCode: 'USD' },
 */
 const products = {}
 
@@ -98,7 +98,7 @@ const getProducts = async () => {
     i.categories.forEach((j) => {
       if (categories.hasOwnProperty(j)) {
         categories[j].push(i)
-      } else {
+      } else {  
         categories[j] = [i]
       }
     })
@@ -110,6 +110,12 @@ const getProducts = async () => {
       } else {
         delete categories[i]
       }
+    }
+  })
+  let catKeys = Object.keys(categories)
+  catKeys.forEach((i) => {
+    if (categories.hasOwnProperty(i)) {
+        categories[i] = { slug: i.toLocaleLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, ''), ...categories[i] } 
     }
   })
 
