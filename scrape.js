@@ -115,7 +115,7 @@ const getProducts = async () => {
   catKeys = Object.keys(categories)
   catKeys.forEach((i) => {
     if (categories.hasOwnProperty(i)) {
-        categories[i] = { slug: i.toLocaleLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, ''), ...categories[i] } 
+        categories[i] = { slug: i.toLocaleLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, ''), items: categories[i] } 
     }
   })
 
