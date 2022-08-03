@@ -29,7 +29,7 @@ export default new Router()
       res.setHeader('Access-Control-Allow-Origin', '*')
       res.setHeader('Access-Control-Allow-Methods', 'GET')
       res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-      res.body = JSON.stringify(Object.keys(categories))
+      res.body = JSON.stringify(Object.keys(categories).map((i) => ({ name: i, slug: categories[i]['slug'] ))
       res.statusCode = 200
       res.statusMessage = 'OK'
     })
