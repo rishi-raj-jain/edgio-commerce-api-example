@@ -5,7 +5,7 @@
     "layer0:deploy": "layer0 deploy"
   },
   "devDependencies": {
-    "@layer0/cli": "^4.17.0",
+    "@layer0/cli": "^4.19.7",
     "@layer0/core": "^4.17.0",
     "@layer0/devtools": "^4.17.0",
     "@layer0/prefetch": "^4.17.0",
