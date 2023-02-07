@@ -1,6 +1,6 @@
 import { products } from './data'
+import { Router } from '@edgio/core'
 import { categories } from './categories'
-import { Router } from '@edgio/core/Router'
 
 export default new Router()
   .get('/images/:path*', ({ cache, serveStatic, setResponseHeader }) => {
