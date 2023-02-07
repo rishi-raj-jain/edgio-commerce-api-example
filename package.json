@@ -1,18 +1,16 @@
 {
-  "name": "layer0-ecommmerce-api-example",
+  "name": "edgio-ecommerce-api-example",
   "scripts": {
-    "format": "prettier '**/*' --write --ignore-unknown",
-    "layer0:deploy": "layer0 deploy"
+    "format": "prettier '**/*' --write --ignore-unknown"
   },
   "devDependencies": {
-    "@layer0/cli": "^4.17.0",
-    "@layer0/core": "^4.17.0",
-    "@layer0/devtools": "^4.17.0",
-    "@layer0/prefetch": "^4.17.0",
+    "@edgio/cli": "^6.1.0",
+    "@edgio/core": "^6.1.0",
+    "@edgio/devtools": "^6.1.0",
+    "@edgio/prefetch": "^6.1.0",
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
     "fs-extra": "^10.1.0",
     "prettier": "^2.6.2"
-  },
-  "dependencies": {}
+  }
 }

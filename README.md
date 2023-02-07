@@ -1,12 +1,10 @@
 # Creating APIs with Serverless Functions by Layer0: A Fake E-Commerce API
 
-[![Deploy with Layer0](https://docs.layer0.co/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/layer0-ecommmerce-api-example)
+[![Deploy with Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/edgio-ecommerce-api-example)
 
-<br />
+![Creating APIs with Serverless Functions by Edgio: A Fake E-Commerce API](https://raw.githubusercontent.com/rishi-raj-jain/layer0-ecommmerce-api-example/master/Layer0-Serverless-Functions.png)
 
-![Creating APIs with Serverless Functions by Layer0: A Fake E-Commerce API](https://raw.githubusercontent.com/rishi-raj-jain/layer0-ecommmerce-api-example/master/Layer0-Serverless-Functions.png)
-
-[Layer0 Serverless Functions](https://docs.layer0.co/guides/serverless_functions) allow you to create APIs without using a Javascript framework. This example is to create a free online REST API that you can use whenever you need Pseudo-real data for your e-commerce without running any server-side code.
+[Edgio Serverless Functions](https://docs.edg.io/guides/serverless_functions) allow you to create APIs without using a Javascript framework. This example is to create a free online REST API that you can use whenever you need Pseudo-real data for your e-commerce without running any server-side code.
 
 ## Resources
 
@@ -45,7 +43,7 @@ fetch("https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limeligh
 
 ### Clone This Repo
 
-Use `git clone https://github.com/rishi-raj-jain/layer0-ecommmerce-api-example.git` to get the files within this repository onto your local machine.
+Use `git clone https://github.com/rishi-raj-jain/edgio-ecommerce-api-example.git` to get the files within this repository onto your local machine.
 
 ### Install dependencies
 
@@ -55,32 +53,26 @@ On the command line, in the project root directory, run the following command:
 npm install
 ```
 
-### Run Serverless Functions locally on Layer0
-
-Run the Layer0 app with the command:
+### Run Serverless Functions locally on Edgio
 
 ```bash
-0 dev
+edgio dev
 ```
 
-Load the site: http://127.0.0.1:3000
-
-### Testing production build locally with Layer0
-
-You can do a production build of your app and test it locally using:
+### Testing production build locally with Edgio
 
 ```bash
-0 build && 0 run --production
+edgio build && edgio run --production
 ```
 
-Setting --production runs your app exactly as it will be uploaded to the Layer0 cloud using serverless-offline.
+Setting --production runs your app exactly as it will be uploaded to the Edgio cloud using serverless-offline.
 
-## Deploying to Layer0
+## Deploying to Edgio
 
-Deploying requires an account on Layer0. [Sign up here for free](https://app.layer0.co/signup). Once you have an account, you can deploy to Layer0 by running the following in the root folder of your project:
+Deploying requires an account on Edgio. [Sign up here for free](https://app.layer0.co/signup). Once you have an account, you can deploy to Edgio by running the following in the root folder of your project:
 
 ```bash
-0 deploy
+edgio deploy
 ```
 
-See [deploying](https://docs.layer0.co/guides/deploying) for more information.
+See [deploying](https://docs.edg.io/guides/deploying) for more information.
