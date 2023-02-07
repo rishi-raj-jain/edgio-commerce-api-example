@@ -1,7 +1,7 @@
 const fs = require('fs-extra')
 const axios = require('axios')
 const cheerio = require('cheerio')
-const imageDomain = 'https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link'
+const imageDomain = 'https://edgio-community-ecommerce-api-example-default.layer0-limelight.link'
 /*
     Format:
         name: String
