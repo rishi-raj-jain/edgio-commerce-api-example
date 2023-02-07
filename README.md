@@ -1,4 +1,4 @@
-# Creating APIs with Serverless Functions by Layer0: A Fake E-Commerce API
+# Creating APIs with Serverless Functions by Edgio: A Fake E-Commerce API
 
 [![Deploy with Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/edgio-ecommerce-api-example)
 
