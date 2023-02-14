@@ -1,6 +1,6 @@
 # Creating APIs with Serverless Functions by Edgio: A Fake E-Commerce API
 
-[![Deploy with Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/edgio-ecommerce-api-example)
+[![Deploy To Edgio](https://docs.edg.io/button.svg)](https://app.layer0.co/deploy?repo=https://github.com/rishi-raj-jain/edgio-commerce-api-example)
 
 ![Creating APIs with Serverless Functions by Edgio: A Fake E-Commerce API](https://raw.githubusercontent.com/rishi-raj-jain/layer0-ecommmerce-api-example/master/Layer0-Serverless-Functions.png)
 
@@ -20,21 +20,21 @@ One can fetch data with any kind of methods you know(fetch API, Axios, JQuery AJ
 
 ### Get all products
 ```js
-fetch("https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link/products/all")
+fetch("https://edgio-community-ecommerce-api-example-default.layer0-limelight.link/products/all")
   .then((res) => res.json())
   .then((res) => console.log(res))
 ```
 
 ### Get a single product
 ```js
-fetch("https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link/products/next-js-enamel-mug")
+fetch("https://edgio-community-ecommerce-api-example-default.layer0-limelight.link/products/next-js-enamel-mug")
   .then((res) => res.json())
   .then((res) => console.log(res))
 ```
 
 ### Get all images of a product
 ```js
-fetch("https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limelight.link/product-images/next-js-enamel-mug")
+fetch("https://edgio-community-ecommerce-api-example-default.layer0-limelight.link/product-images/next-js-enamel-mug")
   .then((res) => res.json())
   .then((res) => console.log(res))
 ```
@@ -43,7 +43,7 @@ fetch("https://layer0-docs-layer0-ecommmerce-api-example-default.layer0-limeligh
 
 ### Clone This Repo
 
-Use `git clone https://github.com/rishi-raj-jain/edgio-ecommerce-api-example.git` to get the files within this repository onto your local machine.
+Use `git clone https://github.com/rishi-raj-jain/edgio-commerce-api-example.git` to get the files within this repository onto your local machine.
 
 ### Install dependencies
 
@@ -56,7 +56,7 @@ npm install
 ### Run Serverless Functions locally on Edgio
 
 ```bash
-edgio dev
+node scrape.js && edgio dev
 ```
 
 ### Testing production build locally with Edgio
